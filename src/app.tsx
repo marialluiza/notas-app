@@ -1,5 +1,6 @@
 import logo from './assets/logo.svg'
 
+import { v4 as uuidv4 } from 'uuid';
 import { ChangeEvent, useState } from 'react'
 import { NewNoteCard } from './components/new-note-card'
 import { NoteCard } from './components/note-card'
@@ -24,7 +25,7 @@ export function App() {
 
   function onNoteCreated(content: string){
     const newNote = {
-      id: crypto.randomUUID(), //'crypto.randomUUID' gera id unico universal em formato de string
+      id: uuidv4(), //'crypto.randomUUID' gera id unico universal em formato de string
       date: new Date(),
       content
     }

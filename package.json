@@ -14,12 +14,14 @@
     "lucide-react": "^0.338.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sonner": "^1.4.1"
+    "sonner": "^1.4.1",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/dom-speech-recognition": "^0.0.4",
     "@types/react": "^18.2.56",
     "@types/react-dom": "^18.2.19",
+    "@types/uuid": "^9.0.8",
     "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.17",
     "postcss": "^8.4.35",
