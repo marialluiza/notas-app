@@ -102,7 +102,7 @@ export function NewNoteCard({ onNoteCreated }: NewNoteCardProps) {
         </span>
 
         <p className="text-sm leading-6 text-slate-400 ">
-          Digite ou grave uma nota em áudio que será convertida para texto automaticamente.
+          Digite uma nota ou grave um áudio que será convertido para texto automaticamente.
         </p>
       </Dialog.Trigger>
 
