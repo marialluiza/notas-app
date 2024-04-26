@@ -56,7 +56,6 @@ export function NewNoteCard({ onNoteCreated }: NewNoteCardProps) {
       return
     }
 
-    navigator.mediaDevices.getUserMedia({audio: true})
     setIsRecording(true)
     setShouldShowOnborading(false)
 
