@@ -3,6 +3,7 @@ import * as Dialog from '@radix-ui/react-dialog';
 import { formatDistanceToNow } from 'date-fns';
 import { ptBR } from 'date-fns/locale/pt-BR';
 import { X } from 'lucide-react';
+import { toast } from 'sonner';
 
 interface NoteCardProps {
     note: {
@@ -22,6 +23,7 @@ export function NoteCard({ note, onNoteDeleted, onNoteUpdated }: NoteCardProps) 
         // Chame a função de atualização da nota com o ID e o novo conteúdo
         onNoteUpdated(note.id, editableContent);
         setIsEditing(false); // Sai do modo de edição após salvar
+        toast.success('Nota salva')
     };
 
     return (
@@ -73,6 +75,7 @@ export function NoteCard({ note, onNoteDeleted, onNoteUpdated }: NoteCardProps) 
                                 >
                                     Salvar
                                 </button>
+                                 
                             ) : (
                                 <button
                                     type="button"
