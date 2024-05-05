@@ -96,12 +96,12 @@ export function NewNoteCard({ onNoteCreated }: NewNoteCardProps) {
     <Dialog.Root>
       {/* 'Trigger' é um botão que vem com alguns estilos de centralização */}
       {/* quando 'flex' deve-se usar o gap junto invés de 'sapce'*/}
-      <Dialog.Trigger className=" flex flex-col rounded-md bg-slate-700 p-5 gap-3 text-left hover:ring-2 hover:ring-slate-600 focus-visible:ring-2 focus-visible:ring-lime-400 outline-none">
+      <Dialog.Trigger className=" flex flex-col rounded-md bg-slate-600 p-5 gap-3 text-left hover:ring-2 hover:ring-slate-600 focus-visible:ring-2 focus-visible:ring-lime-400 outline-none">
         <span className="text-sm font-medium text-slate-200">
           Adicionar nota
         </span>
 
-        <p className="text-sm leading-6 text-slate-400 ">
+        <p className="text-sm leading-6 text-slate-300 ">
           Digite uma nota ou grave um áudio que será convertido para texto automaticamente.
         </p>
       </Dialog.Trigger>
