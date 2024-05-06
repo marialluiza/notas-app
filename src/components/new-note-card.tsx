@@ -7,17 +7,17 @@ interface NewNoteCardProps {
   onNoteCreated: (content: string) => void
 }
 
-let speechRecognition: SpeechRecognition | null = null
+// let speechRecognition: SpeechRecognition | null = null
 
 export function NewNoteCard({ onNoteCreated }: NewNoteCardProps) {
   // não pode apenas trocar o valor da váriavel pois o 'useState' devolve ela em um array , por isso é colocada uma função junto pra que ela sim altere o valor booleano do UseState da variável
-  const [shouldShowOnboarding, setShouldShowOnborading] = useState(true)
-  const [isRecording, setIsRecording] = useState(false)
+  // const [shouldShowOnboarding, setShouldShowOnborading] = useState(true)
+  // const [isRecording, setIsRecording] = useState(false)
   const [content, setContent] = useState('')
 
-  function handleStartEditor() {
-    setShouldShowOnborading(false)
-  }
+  // function handleStartEditor() {
+  //   setShouldShowOnborading(false)
+  // }
 
   // lembrete: o tipo do evento pode ser visto ao descanssar o mouse em cima do evento
   // '<HTMLTextAreaElement>' está sendo utilizado pois 'changeEvent' ñ basta como tipo pois changeEvent também acontece em outros tipos de eventos, e aquele 'value' dentro da função só é válido pra TextArea e input, por isso teve de especificar no tipo que era um TextArea
@@ -25,9 +25,9 @@ export function NewNoteCard({ onNoteCreated }: NewNoteCardProps) {
   function handleContentChanged(event: ChangeEvent<HTMLTextAreaElement>) {
     setContent(event.target.value)
 
-    if (event.target.value === '') {
-      setShouldShowOnborading(true)
-    }
+    // if (event.target.value === '') {
+    //   setShouldShowOnborading(true)
+    // }
   }
 
   function handleSaveNote(event: FormEvent) {
@@ -42,55 +42,55 @@ export function NewNoteCard({ onNoteCreated }: NewNoteCardProps) {
 
     setContent('')
 
-    setShouldShowOnborading(true)
+    // setShouldShowOnborading(true)
 
     toast.success('Nota criada com sucesso')
   }
 
-  function handleStartRecording() {
-    const isSpeechRecognitionAPIAvailable = 'SpeechRecognition' in window
-      || 'webkitSpeechRecognition' in window
+  // function handleStartRecording() {
+  //   const isSpeechRecognitionAPIAvailable = 'SpeechRecognition' in window
+  //     || 'webkitSpeechRecognition' in window
 
-    if (!isSpeechRecognitionAPIAvailable) {
-      alert('Infelizmente seu navegador não suporta a API de gravação!')
-      return
-    }
+  //   if (!isSpeechRecognitionAPIAvailable) {
+  //     alert('Infelizmente seu navegador não suporta a API de gravação!')
+  //     return
+  //   }
 
-    setIsRecording(true)
-    setShouldShowOnborading(false)
+    // setIsRecording(true)
+    // setShouldShowOnborading(false)
 
-    const SpeechRecognitionAPI = window.SpeechRecognition || window.webkitSpeechRecognition
+  //   const SpeechRecognitionAPI = window.SpeechRecognition || window.webkitSpeechRecognition
 
-    speechRecognition = new SpeechRecognitionAPI()
+  //   speechRecognition = new SpeechRecognitionAPI()
 
-    speechRecognition.lang = 'pt-BR'
-    speechRecognition.continuous = true
-    speechRecognition.maxAlternatives = 1
-    speechRecognition.interimResults = true
+  //   speechRecognition.lang = 'pt-BR'
+  //   speechRecognition.continuous = true
+  //   speechRecognition.maxAlternatives = 1
+  //   speechRecognition.interimResults = true
 
-    speechRecognition.onresult = (event) => {
-      const transcription = Array.from(event.results).reduce((text, result) => {
-          return text.concat(result[0].transcript)
-      }, '')
+  //   speechRecognition.onresult = (event) => {
+  //     const transcription = Array.from(event.results).reduce((text, result) => {
+  //         return text.concat(result[0].transcript)
+  //     }, '')
 
-      setContent(transcription)
-    }
+  //     setContent(transcription)
+  //   }
 
-    speechRecognition.onerror = (event) => {
-      console.error(event)
-    }
+  //   speechRecognition.onerror = (event) => {
+  //     console.error(event)
+  //   }
 
-    speechRecognition.start()
+  //   speechRecognition.start()
 
-  }
+  // }
 
-  function handleStopRecording() {
-    setIsRecording(false)
+  // function handleStopRecording() {
+  //   setIsRecording(false)
 
-    if (speechRecognition != null){
-      speechRecognition.stop()
-    } 
-  }
+  //   if (speechRecognition != null){
+  //     speechRecognition.stop()
+  //   } 
+  // }
 
   return (
     <Dialog.Root>
@@ -147,7 +147,7 @@ export function NewNoteCard({ onNoteCreated }: NewNoteCardProps) {
 
               </div>
 
-              {isRecording ? (
+              {/* {isRecording ? (
                 <button
                   type="button"
                   onClick={handleStopRecording}
@@ -155,14 +155,14 @@ export function NewNoteCard({ onNoteCreated }: NewNoteCardProps) {
                   <div className="size-3 rounded-full bg-red-500 animate-pulse" />
                   Gravando! (Clique para interromper gravação)
                 </button>
-              ) : (
+              ) : ( */}
                 <button
                   type="button"
                   onClick={handleSaveNote}
                   className="w-full bg-lime-400 py-4 text-center text-sm text-lime-950 outline-none font-medium hover:bg-lime-500">
                   Salvar nota
                 </button>
-              )}
+              {/* )} */}
 
             </form>
 
