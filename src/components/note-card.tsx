@@ -4,6 +4,7 @@ import { formatDistanceToNow } from 'date-fns';
 import { ptBR } from 'date-fns/locale/pt-BR';
 import { X } from 'lucide-react';
 import { toast } from 'sonner';
+import '../components/customScroll.css'
 
 interface NoteCardProps {
     note: {
@@ -34,12 +35,14 @@ export function NoteCard({ note, onNoteDeleted, onNoteUpdated }: NoteCardProps) 
                 </span>
                 {isEditing ? (
                     <textarea
-                        className="text-sm leading-6 text-slate-400 bg-transparent outline-none border-none resize-none"
+                        className="text-sm leading-6 text-slate-400 bg-transparent outline-none border-none"
                         value={editableContent}
                         onChange={(e) => setEditableContent(e.target.value)}
                     />
                 ) : (
-                    <p className="text-sm leading-6 text-slate-400 ">{note.content}</p>
+                    <div className="h-96 ">
+                        <p className="text-sm leading-6 text-slate-400 ">{note.content}</p>
+                    </div>
                 )}
                 <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black/40 to-black/0 pointer-events-none" />
             </Dialog.Trigger>
@@ -57,12 +60,14 @@ export function NoteCard({ note, onNoteDeleted, onNoteUpdated }: NoteCardProps) 
                             </span>
                             {isEditing ? (
                                 <textarea
-                                    className="text-sm leading-6 text-slate-400 bg-transparent outline-none border-none resize-none"
+                                    className="text-sm leading-6 text-slate-400 bg-transparent outline-none border-none h-96 scrollbar-w-2 scrollbar-track-gray-300 scrollbar-thumb-gray-500 scrollbar-thumb-hover-gray-700"
                                     value={editableContent}
                                     onChange={(e) => setEditableContent(e.target.value)}
                                 />
                             ) : (
-                                <p className="text-sm leading-6 text-slate-400 ">{note.content}</p>
+                                <div className='h-96 overflow-auto scrollbar-w-2 scrollbar-track-gray-300 scrollbar-thumb-gray-500 scrollbar-thumb-hover-gray-700'>
+                                    <p className="text-sm leading-6 text-slate-400">{note.content}</p>
+                                </div>
                             )}
                         </div>
 
