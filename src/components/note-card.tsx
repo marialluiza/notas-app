@@ -40,7 +40,7 @@ export function NoteCard({ note, onNoteDeleted, onNoteUpdated }: NoteCardProps) 
                         onChange={(e) => setEditableContent(e.target.value)}
                     />
                 ) : (
-                    <div className="h-96 ">
+                    <div className="h-72">
                         <p className="text-sm leading-6 text-slate-400 ">{note.content}</p>
                     </div>
                 )}
@@ -60,12 +60,12 @@ export function NoteCard({ note, onNoteDeleted, onNoteUpdated }: NoteCardProps) 
                             </span>
                             {isEditing ? (
                                 <textarea
-                                    className="text-sm leading-6 text-slate-400 bg-transparent outline-none border-none h-96 scrollbar-w-2 scrollbar-track-gray-300 scrollbar-thumb-gray-500 scrollbar-thumb-hover-gray-700"
+                                    className="text-sm resize-none leading-6 text-slate-400 bg-transparent outline-none border-none h-72 scrollbar-w-2 scrollbar-track-gray-300 scrollbar-thumb-gray-500 scrollbar-thumb-hover-gray-700"
                                     value={editableContent}
                                     onChange={(e) => setEditableContent(e.target.value)}
                                 />
                             ) : (
-                                <div className='h-96 overflow-auto scrollbar-w-2 scrollbar-track-gray-300 scrollbar-thumb-gray-500 scrollbar-thumb-hover-gray-700'>
+                                <div className='h-72 overflow-auto scrollbar-w-2 scrollbar-track-gray-300 scrollbar-thumb-gray-500 scrollbar-thumb-hover-gray-700 '>
                                     <p className="text-sm leading-6 text-slate-400">{note.content}</p>
                                 </div>
                             )}
@@ -76,7 +76,7 @@ export function NoteCard({ note, onNoteDeleted, onNoteUpdated }: NoteCardProps) 
                                 <button
                                     type="button"
                                     onClick={handleSave}
-                                    className="w-full bg-lime-500 py-4 text-center text-sm text-lime-950 outline-none font-medium group rounded-md"
+                                    className="w-full resize-none bg-lime-500 py-4 text-center text-sm text-lime-950 outline-none font-medium group rounded-md"
                                 >
                                     Salvar
                                 </button>
