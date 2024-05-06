@@ -102,7 +102,8 @@ export function NewNoteCard({ onNoteCreated }: NewNoteCardProps) {
         </span>
 
         <p className="text-sm leading-6 text-slate-300 ">
-          Digite uma nota ou grave um áudio que será convertido para texto automaticamente.
+          Comece a escrever uma nova nota aqui.
+          {/* ou grave um áudio que será convertido para texto automaticamente. */}
         </p>
       </Dialog.Trigger>
 
@@ -126,13 +127,13 @@ export function NewNoteCard({ onNoteCreated }: NewNoteCardProps) {
                 {/* if else:
                     '?' é o 'então' 
                     ':' é o 'senão'*/}
-                {shouldShowOnboarding ? (
-                  <p className="text-sm leading-6 text-slate-400 ">
-                    Comece <button type="button" onClick={handleStartRecording} className="text-lime-400 text-sm hover:underline">gravando uma nota</button> em áudio ou se preferir <button type="button" onClick={handleStartEditor} className="text-lime-400 text-sm hover:underline">utilize apenas texto</button>
-                  </p>
-                ) : (
-                  // 'autoFocus' - assim que ela aparece já pode começar a digitar nela
-                  // 'resize' - permite que o usuário altere o tamanho dela
+                {/* {shouldShowOnboarding ? ( */}
+                  {/*  <p className="text-sm leading-6 text-slate-400 ">
+                     Comece <button type="button" onClick={handleStartRecording} className="text-lime-400 text-sm hover:underline">gravando uma nota</button> em áudio ou se preferir <button type="button" onClick={handleStartEditor} className="text-lime-400 text-sm hover:underline">utilize apenas texto</button>
+                  </p> */}
+                {/* ) : (
+                  'autoFocus' - assim que ela aparece já pode começar a digitar nela
+                  'resize' - permite que o usuário altere o tamanho dela */}
                   <textarea
                     autoFocus
                     className="text-sm leading-6  text-slate-400 bg-transparent resize-none flex-1 outline-none"
@@ -142,7 +143,7 @@ export function NewNoteCard({ onNoteCreated }: NewNoteCardProps) {
 
                   />
 
-                )}
+                {/* )} */}
 
               </div>
 
