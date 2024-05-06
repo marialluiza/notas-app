@@ -76,6 +76,7 @@ export function App() {
         <img src={logo} className="w-40 h-auto" />
 
         <div className="flex mt-4">
+          <p className='flex pr-3 pt-[0.5px] text-sm text-slate-300'>Número de visitas:</p>
           <Contador />
         </div>
       </div>
